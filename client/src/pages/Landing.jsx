@@ -1,21 +1,4 @@
 
-/*
- * Zodiac DatN — Landing Page
- *
- * Original Twine Round 7 Step 2 design preserved.
- *
- * Features:
- * - Animated hero connection
- * - Responsive mobile and desktop layout
- * - Cosmic Wingmate messaging
- * - Zodiac-inspired matchmaking branding
- * - How it works
- * - Safety and privacy
- * - Signup call to action
- *
- * Written in the Stars. Confirmed by Chemistry.
- */
-
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
@@ -23,18 +6,21 @@ import {
   ArrowRight,
   Eye,
   Flag,
+  Heart,
   Lock,
   MailOpen,
   Menu,
   MessageSquareText,
   PenLine,
   ShieldCheck,
-  X
+  X,
 } from 'lucide-react'
 
 import { IconBtn, T, Wordmark, useDraw } from '../components/r7'
 import { useMobile } from '../components/prelude'
 import { illustration } from '../lib/art'
+
+const KOFI_TIP_URL = 'https://ko-fi.com/zodiacdatn'
 
 /*
  * HERO ART
@@ -48,7 +34,7 @@ function HeroArt({ mobile }) {
   useDraw(ref, {
     duration: 1100,
     delay: 450,
-    ease: 'inOutQuad'
+    ease: 'inOutQuad',
   })
 
   const W = mobile ? 343 : 600
@@ -64,7 +50,7 @@ function HeroArt({ mobile }) {
       style={{
         width: W,
         height: H,
-        maxWidth: '100%'
+        maxWidth: '100%',
       }}
     >
       <motion.img
@@ -75,7 +61,7 @@ function HeroArt({ mobile }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           ...T.slow,
-          delay: 0.05
+          delay: 0.05,
         }}
       />
 
@@ -87,7 +73,7 @@ function HeroArt({ mobile }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           ...T.slow,
-          delay: 0.15
+          delay: 0.15,
         }}
       />
 
@@ -113,7 +99,7 @@ function HeroArt({ mobile }) {
           animate={{ scale: 1 }}
           transition={{
             ...T.base,
-            delay: 0.3
+            delay: 0.3,
           }}
         />
 
@@ -126,7 +112,7 @@ function HeroArt({ mobile }) {
           animate={{ scale: 1 }}
           transition={{
             ...T.base,
-            delay: 0.38
+            delay: 0.38,
           }}
         />
       </svg>
@@ -137,7 +123,7 @@ function HeroArt({ mobile }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           ...T.slow,
-          delay: 1.45
+          delay: 1.45,
         }}
       >
         <span className="agent-tag">
@@ -165,7 +151,7 @@ function Reveal({
   children,
   i = 0,
   className = '',
-  as = 'div'
+  as = 'div',
 }) {
   const rm = useReducedMotion()
   const M = motion[as]
@@ -180,15 +166,15 @@ function Reveal({
       }
       whileInView={{
         opacity: 1,
-        y: 0
+        y: 0,
       }}
       viewport={{
         once: true,
-        amount: 0.3
+        amount: 0.3,
       }}
       transition={{
         ...T.slow,
-        delay: i * 0.06
+        delay: i * 0.06,
       }}
     >
       {children}
@@ -203,46 +189,148 @@ const STEPS = [
   [
     MessageSquareText,
     'Discover Your Cosmic Match',
-    'Explore singles through photos, prompts, shared interests and zodiac-inspired connections. Like what catches your eye.'
+    'Explore singles through photos, prompts, shared interests and zodiac-inspired connections. Like what catches your eye.',
   ],
   [
     PenLine,
     'Let Your Cosmic Wingmates Break the Ice',
-    'When you both like each other, your AI wingmates can start the conversation in your own texting styles. Read along and take over anytime.'
+    'When you both like each other, your AI wingmates can start the conversation in your own texting styles. Read along and take over anytime.',
   ],
   [
     MailOpen,
     'Discover Your Cosmic Chemistry',
-    'Your wingmate shares a private letter explaining what clicked, using real conversation details. You decide what happens next.'
+    'Your wingmate shares a private letter explaining what clicked, using real conversation details. You decide what happens next.',
   ],
 ]
 
 /*
  * SAFETY AND PRIVACY
- * Preserves the original platform's safety messaging.
  */
 const TRUST = [
   [
     ShieldCheck,
     'Every Photo Is Checked',
-    'Each new photo gets an automatic safety check before anyone sees it: no contact details, QR codes or explicit content.'
+    'Each new photo gets an automatic safety check before anyone sees it: no contact details, QR codes or explicit content.',
   ],
   [
     Eye,
     'You See Every Word',
-    'Every message a Cosmic Wingmate writes is labelled for both of you. Read along and take over at any moment.'
+    'Every message a Cosmic Wingmate writes is labelled for both of you. Read along and take over at any moment.',
   ],
   [
     Lock,
     'Your Cosmic Identity Stays Yours',
-    'Mark anything Public, Only if asked, or Private. Your Cosmic Wingmate never shares information marked Private.'
+    'Mark anything Public, Only if asked, or Private. Your Cosmic Wingmate never shares information marked Private.',
   ],
   [
     Flag,
     'Fakes Get Caught Early',
-    'Your Cosmic Wingmate checks profiles before starting conversations and stops talking when something looks suspicious.'
+    'Your Cosmic Wingmate checks profiles before starting conversations and stops talking when something looks suspicious.',
   ],
 ]
+
+/*
+ * OPTIONAL KO-FI SUPPORT SECTION
+ */
+function TipSection({ mobile }) {
+  return (
+    <section
+      id="support"
+      aria-labelledby="support-heading"
+      style={{
+        padding: mobile ? '64px 20px' : '90px 32px',
+        textAlign: 'center',
+      }}
+    >
+      <Reveal>
+        <div
+          style={{
+            maxWidth: 720,
+            margin: '0 auto',
+            padding: mobile ? '36px 20px' : '52px 40px',
+            border: '1px solid rgba(171, 138, 255, 0.24)',
+            borderRadius: 24,
+            background:
+              'linear-gradient(145deg, rgba(150, 100, 255, 0.09), rgba(255, 100, 160, 0.035))',
+          }}
+        >
+          <Heart
+            size={36}
+            strokeWidth={1.5}
+            aria-hidden="true"
+            style={{
+              color: '#C5A5FF',
+              marginBottom: 18,
+            }}
+          />
+
+          <h2
+            className="h2"
+            id="support-heading"
+            style={{ marginBottom: 16 }}
+          >
+            Find Love. Tip Later.
+          </h2>
+
+          <p
+            className="lead"
+            style={{
+              maxWidth: 560,
+              margin: '0 auto 24px',
+            }}
+          >
+            We believe finding a meaningful connection
+            shouldn't require an expensive subscription.
+            Explore your cosmic chemistry for free.
+            If Zodiac DatN helps you find someone special,
+            you can celebrate your connection with an
+            optional tip.
+          </p>
+
+          <p
+            className="small"
+            style={{
+              marginBottom: 20,
+              opacity: 0.8,
+            }}
+          >
+            Suggested tips: $11 · $33 · $55
+          </p>
+
+          <a
+            className={`btn primary lg ${mobile ? 'block' : ''}`}
+            href={KOFI_TIP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: mobile ? 'flex' : 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 10,
+              textDecoration: 'none',
+            }}
+          >
+            <Heart size={18} aria-hidden="true" />
+            Leave a Tip
+            <ArrowRight size={18} aria-hidden="true" />
+          </a>
+
+          <p
+            className="small"
+            style={{
+              marginTop: 18,
+              opacity: 0.7,
+            }}
+          >
+            Tipping is always optional.
+            No payment is required to support your
+            journey toward a meaningful connection.
+          </p>
+        </div>
+      </Reveal>
+    </section>
+  )
+}
 
 /*
  * MAIN LANDING PAGE
@@ -317,6 +405,13 @@ export default function Landing() {
           <Link to="/login">
             Log in
           </Link>
+
+          <a
+            href="#support"
+            onClick={() => setMenu(false)}
+          >
+            Support Us ❤️
+          </a>
         </nav>
       )}
 
@@ -455,6 +550,9 @@ export default function Landing() {
         </ul>
       </section>
 
+      {/* NEW: FIND LOVE. TIP LATER. */}
+      <TipSection mobile={mobile} />
+
       {/* FINAL CALL TO ACTION */}
       <section className="l-cta">
         <Reveal>
@@ -485,6 +583,22 @@ export default function Landing() {
         <span className="small">
           Written in the Stars. Confirmed by Chemistry.
         </span>
+
+        <a
+          className="link"
+          href={KOFI_TIP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            fontSize: 13,
+          }}
+        >
+          <Heart size={14} aria-hidden="true" />
+          Support Us
+        </a>
       </footer>
     </div>
   )
