@@ -6,7 +6,22 @@
 export const VALUE_PHRASES = {
   kids: { yes: 'wants kids someday', no: 'doesn’t want kids', open: 'is open to kids someday', have_already: 'already has kids' },
   religion: { central: 'has religion at the centre of their life', somewhat: 'is somewhat religious', not_really: 'isn’t very religious' },
-  location: { this_city: 'sees themselves staying in this city', another_indian_city: 'may move to another Indian city in a few years', abroad: 'hopes to live abroad in a few years', flexible: 'is flexible about where to live' },
+  spiritual_relationship: {
+    essential_to_share_beliefs: 'wants a partner who shares their spiritual beliefs',
+    important_but_different_beliefs_are_okay: 'values spirituality but respects different beliefs',
+    open_to_exploring_together: 'is open to exploring spirituality together',
+    not_important_to_me: 'does not consider spirituality important to a relationship',
+  },
+  spiritual_practices: {
+    astrology_and_zodiac_compatibility: 'would enjoy exploring astrology and zodiac compatibility together',
+    meditation_and_mindfulness: 'would enjoy meditation and mindfulness together',
+    prayer_or_religious_practices: 'would enjoy shared prayer or religious practices',
+    energy_work_and_manifestation: 'would enjoy energy work and manifestation together',
+    exploring_different_beliefs: 'would enjoy exploring different spiritual beliefs together',
+    prefer_to_keep_spirituality_personal: 'prefers to keep spiritual practices personal',
+    none: 'does not seek shared spiritual practices',
+  },
+  location: { this_city: 'sees themselves staying in this city', another_indian_city: 'may move to another US city in a few years', abroad: 'hopes to live abroad in a few years', flexible: 'is flexible about where to live' },
   smoking: { never: 'doesn’t smoke', socially: 'smokes socially', regularly: 'smokes regularly' },
   drinking: { never: 'doesn’t drink', socially: 'drinks socially', regularly: 'drinks regularly' },
   family: { closely: 'involves family closely in big decisions', somewhat: 'involves family somewhat in big decisions', not_much: 'makes big decisions mostly on their own' },
@@ -18,7 +33,7 @@ export const VALUE_PHRASES = {
 };
 
 /** Topics the agent never raises unprompted: answerable only when asked (v6 §3.4). */
-export const IF_ASKED_ATTRIBUTES = new Set(['kids', 'drinking', 'smoking', 'religion']);
+export const IF_ASKED_ATTRIBUTES = new Set(['kids', 'drinking', 'smoking', 'religion', 'spiritual_relationship', 'spiritual_practices']);
 
 const lower1 = (t) => (/^(I|[A-Z]{2})/.test(t) ? t : t.charAt(0).toLowerCase() + t.slice(1)); // keeps "I" and acronyms // "A big release" → "a big release"
 const clean = (t) => lower1(String(t).trim().replace(/[.!]+$/, ''));

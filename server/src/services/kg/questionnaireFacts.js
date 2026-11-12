@@ -14,6 +14,8 @@ const INTENSITY = Object.fromEntries(section('D').intensities.map((i) => [i.valu
 export const TOPICS = {
   kids: 'wants children',
   religion: 'religion in own life',
+  spiritual_relationship: 'spiritual compatibility in relationships',
+  spiritual_practices: 'spiritual practices with a partner',
   location: 'living in 3-5 years',
   smoking: 'smoking',
   drinking: 'drinking',

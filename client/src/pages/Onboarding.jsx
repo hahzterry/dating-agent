@@ -259,7 +259,7 @@ export default function Onboarding() {
   )
   if (step === 4) {
     return (
-      <OnbShell step={4} title="Lifestyle and values" sub="Nothing is pre-selected. Skip anything you’d rather not answer." onBack={back}
+      <OnbShell step={4} title="Love, Lifestyle & Spiritual Compatibility" sub="Explore what matters in love, everyday life, and spirituality. Skip anything you’d rather not answer." onBack={back}
         missing={valuesMissing(answers.B, B)} onNext={() => next()}>
         {B.items.map((item) => <ValueQ key={item.id} item={item} v={answers.B[item.id]} onChange={(v) => set('B')({ ...answers.B, [item.id]: v })} />)}
       </OnbShell>

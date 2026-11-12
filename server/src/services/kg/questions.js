@@ -86,7 +86,9 @@ export const QUESTIONS = {
       items: [
         { id: 'kids', text: 'Do you want children someday?', predicate: 'goal', options: opts('Yes', 'No', 'Open', 'Have already') },
         { id: 'religion', text: 'How important is religion or spirituality in your own life?', predicate: 'values', options: opts('Central', 'Somewhat', 'Not really') },
-        { id: 'location', text: 'Where do you see yourself living in 3–5 years?', predicate: 'goal', options: opts('This city', 'Another Indian city', 'Abroad', 'Flexible') },
+        { id: 'spiritual_relationship', text: 'How important is shared spirituality in a romantic relationship?', predicate: 'values', options: opts('Essential to share beliefs', 'Important but different beliefs are okay', 'Open to exploring together', 'Not important to me') },
+        { id: 'spiritual_practices', text: 'Which spiritual practice would you most enjoy sharing with a partner?', predicate: 'values', options: opts('Astrology and zodiac compatibility', 'Meditation and mindfulness', 'Prayer or religious practices', 'Energy work and manifestation', 'Exploring different beliefs', 'Prefer to keep spirituality personal', 'None') },
+        { id: 'location', text: 'Where do you see yourself living in 3–5 years?', predicate: 'goal', options: opts('This city', 'Another Indian city', 'Abroad', 'Flexible').map((option) => option.value === 'another_indian_city' ? { ...option, label: 'Another US city' } : option) },
         { id: 'smoking', text: 'Smoking?', predicate: 'lifestyle', options: opts('Never', 'Socially', 'Regularly') },
         { id: 'drinking', text: 'Drinking?', predicate: 'lifestyle', options: opts('Never', 'Socially', 'Regularly') },
         { id: 'family', text: 'How involved should families be in your relationship decisions?', predicate: 'values', options: opts('Closely', 'Somewhat', 'Not much') },

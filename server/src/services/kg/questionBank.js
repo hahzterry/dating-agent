@@ -275,6 +275,8 @@ export const ALIASES = Object.fromEntries(MODULES.flatMap((m) => m.questions.fil
 export const CORE_VALUES = {
   kids: { text: 'Kids someday?', more: 'What does that look like for you?', area: 'the future', tier: 'deep', uses: 'judge' },
   religion: { text: 'How much does religion or spirituality show up in your life?', more: 'What does that look like day to day?', area: 'family & beliefs', tier: 'deep', uses: 'judge', disclosure: 'if_asked' },
+  spiritual_relationship: { text: 'How important is shared spirituality in a romantic relationship?', more: 'What would spiritual compatibility look like for you?', area: 'love & dating', tier: 'deep', uses: 'judge', disclosure: 'if_asked' },
+  spiritual_practices: { text: 'Which spiritual practice would you most enjoy sharing with a partner?', more: 'What makes that meaningful to you?', area: 'family & beliefs', tier: 'deep', uses: 'judge', disclosure: 'if_asked' },
   location: { text: 'Where do you see yourself living in a few years?', more: 'What’s pulling you there?', area: 'the future', tier: 'deep', uses: 'both' },
   smoking: { text: 'Smoking?', area: 'lifestyle', tier: 'personal', uses: 'judge' },
   drinking: { text: 'Drinking?', more: 'What’s a good night out for you?', area: 'lifestyle', tier: 'personal', uses: 'both' },
