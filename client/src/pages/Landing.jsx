@@ -269,7 +269,7 @@ function TipSection({ mobile }) {
             id="support-heading"
             style={{ marginBottom: 16 }}
           >
-            Find Love. Tip Later.
+            Manifest Love. Tip Later.
           </h2>
 
           <p

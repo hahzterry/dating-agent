@@ -14,6 +14,7 @@ import DemoMatchCard, { DemoChip } from '../components/DemoMatch'
 import PhotoNudge from '../components/PhotoNudge'
 import { useMobile } from '../components/prelude'
 import { useAuth } from '../hooks/useAuth'
+import KoFiTip from '../components/KoFiTip'
 import { useToast } from '../hooks/useToast'
 import { api, errMsg } from '../lib/api'
 
@@ -90,6 +91,13 @@ function Rail({ p, me }) {
       <section className="card dr-sec"><h2 className="dr-h"><Keyboard size={16} strokeWidth={1.8} aria-hidden="true" />Keyboard</h2>
         <ul className="dr-keys"><li><kbd>←</kbd> pass</li><li><kbd>→</kbd> like</li><li><kbd>↑</kbd> next photo</li></ul>
       </section>
+      <section className="card dr-sec">
+    <h2 className="dr-h">Manifest Love. Tip Later.</h2>
+    <KoFiTip
+    label="Support Zodiac DatN ❤️"
+    message="Finding a connection is free. Tips are always optional."
+    />
+     </section>
     </aside>
   )
 }
@@ -187,6 +195,15 @@ export default function Discover() {
           <Hero p={p} photos={photos} idx={idx} onNext={nextPhoto} onLikePhoto={setLiking} busy={busy} />
           <div className="d-stack"><ProfileBody p={p} photos={photos} mobile onLike={setLiking} busy={busy} /></div>
         </SwipeCard>
+        <div
+  className="pad"
+  style={{ paddingTop: 16, paddingBottom: 24 }}
+>
+  <KoFiTip
+    label="Leave a Tip ❤️"
+    message="Manifest Love for free. Support us whenever you choose."
+  />
+</div>
       </div>
       <div className="d-actions">
         <ActionBar name={p.name} onPass={() => flyRef.current?.(false)} onLike={likeProfile} busy={busy} extra={prefsBtn} />
