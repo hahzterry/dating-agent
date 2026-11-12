@@ -37,7 +37,7 @@ export const Avatar = ({ p, src, size = 40, ring }) => <img className={`avatar $
 export const Wordmark = ({ light }) => (
   <span className={`wordmark ${light ? 'light' : ''}`}>
     <img className="wordmark-mark" src={light ? twineMarkLight : twineMark} alt="" aria-hidden="true" />
-    Twine
+    Zodiac DatN
   </span>
 )
 

@@ -91,7 +91,7 @@ export function MatchChoice({ open, name, defaultChoice = 'agents', onStart, onC
   const opts = [['agents', PenLine, 'Let our agents break the ice (~3 min)', 'They talk in your styles, you both can read along, and each of you gets a private letter.'], ['self', MessageCircle, 'Chat myself now', 'Skip the agents and say hello yourself.']]
   return (
     <Sheet open={open} title={`You and ${name} liked each other`} onClose={onClose} footer={<Btn onClick={() => onStart(choice)} loading={busy}>Start</Btn>}>
-      {/* UI polish A5: the match moment, the two loops of the Twine mark knotting together (still under reduced motion) */}
+      {/* UI polish A5: the match moment, the two loops of the Zodiac DatN mark knotting together (still under reduced motion) */}
       <motion.img className="match-knot" src={twineMark} alt="" aria-hidden="true" initial={rm ? false : { scale: 0.4, rotate: -35, opacity: 0 }} animate={{ scale: 1, rotate: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 260, damping: 14 }} />
       <p className="lead sm">How do you want to start?</p>
       <div className="mt-opts" role="radiogroup" aria-label="How to start">

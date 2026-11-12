@@ -51,7 +51,7 @@ function AuthShell({ title, sub, children }) {
   if (mobile) return <div className="scr app-scr m auth"><header className="mbar"><IconBtn icon={ChevronLeft} label="Back" onClick={back} /><Link to="/" aria-label="Twine home"><Wordmark /></Link></header><div className="auth-body"><h1 className="h2">{title}</h1>{sub && <p className="lead sm">{sub}</p>}{children}</div></div>
   return (
     <div className="scr app-scr d auth">
-      <aside className="auth-art"><Link to="/" aria-label="Twine home"><Wordmark /></Link><img src={illustration('demo-meera', 'cafe')} alt="" /><p className="auth-q">“Real treks or Instagram treks?”<span>Written by Meera’s agent</span></p></aside>
+      <aside className="auth-art"><Link to="/" aria-label="Zodiac DatN home"><Wordmark /></Link><img src={illustration('demo-meera', 'cafe')} alt="" /><p className="auth-q">“Real treks or Instagram treks?”<span>Written by Meera’s agent</span></p></aside>
       <main className="auth-main"><Btn kind="ghost" icon={ArrowLeft} className="auth-back" onClick={back}>Back</Btn><div className="auth-form"><h1 className="h1">{title}</h1>{sub && <p className="lead">{sub}</p>}{children}</div></main>
     </div>
   )
@@ -109,7 +109,7 @@ export function Signup() {
   async function submit(e) {
     e.preventDefault()
     if (!f.consent) return setError('Please tick the consent box to continue.')
-    if (ageFrom(f.dob) < 18) return setError('You need to be 18 or older to use Twine.')
+    if (ageFrom(f.dob) < 18) return setError('You need to be 18 or older to use Zodiac DatN.')
     setBusy(true); setError(null)
     try {
       const interestedIn = [...new Set(f.interested.flatMap((x) => INTEREST[x]))]
@@ -119,7 +119,7 @@ export function Signup() {
   }
 
   return (
-    <AuthShell title={step === 1 ? 'Join Twine' : 'About you'} sub={step === 1 ? 'It takes about 8 minutes to set up. Step 1 of 2: your account.' : 'Step 2 of 2. Next: add your photos.'}>
+    <AuthShell title={step === 1 ? 'Join Zodiac DatN' : 'About you'} sub={step === 1 ? 'It takes about 8 minutes to set up. Step 1 of 2: your account.' : 'Step 2 of 2. Next: add your photos.'}>
       {step === 1 ? <form className="form" onSubmit={(e) => { e.preventDefault(); if (accountReady) setStep(2) }} noValidate>
         <Field label="First name">{(id) => <Input id={id} value={f.name} onChange={set('name')} autoComplete="given-name" maxLength={60} required />}</Field>
         <Field label="Email">{(id) => <Input id={id} type="email" icon={Mail} value={f.email} onChange={set('email')} autoComplete="email" required />}</Field>
@@ -164,7 +164,7 @@ export function Login() {
         <Field label="Email">{(id) => <Input id={id} type="email" icon={Mail} value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} autoComplete="email" required />}</Field>
         <Field label="Password" error={error ?? undefined}>{(id) => <Input id={id} type={show ? 'text' : 'password'} icon={KeyRound} value={f.password} onChange={(e) => setF({ ...f, password: e.target.value })} autoComplete="current-password" required right={<IconBtn icon={show ? EyeOff : Eye} label={show ? 'Hide password' : 'Show password'} className="sm" onClick={() => setShow(!show)} />} />}</Field>
         <Btn size="lg" block type="submit" loading={busy}>Log in</Btn>
-        <p className="small center">New here? <Link className="link" to="/signup">Join Twine</Link></p>
+        <p className="small center">New here? <Link className="link" to="/signup">Join Zodiac DatN</Link></p>
       </form>
     </AuthShell>
   )

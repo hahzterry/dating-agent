@@ -9,7 +9,7 @@ import { Btn, Wordmark } from './r7'
 const HEALTH = `${import.meta.env.VITE_API_URL ?? ''}/health`
 const GIVE_UP_MS = 120_000
 const TRY_MS = 20_000
-const WAKING = ['Waking up the server…', 'Twine runs on free hosting that naps when it’s quiet. Waking can take up to 2 minutes. Thanks for your patience.']
+const WAKING = ['Waking up the server…', 'Zodiac DatN runs on free hosting that naps when it’s quiet. Waking can take up to 2 minutes. Thanks for your patience.']
 
 /** UI polish B7: an inline hint for a request that's still loading after 3 s (the server may have napped since the app opened). */
 export function SlowHint() {
