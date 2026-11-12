@@ -2,6 +2,7 @@
 {
   "name": "dating-agent",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
     "dev:server": "npm --prefix server run dev",
