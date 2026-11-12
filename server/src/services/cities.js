@@ -1,4 +1,4 @@
-// US cities with coordinates (plan 30 S0), so the gate's optional radius works. A city that isn't listed
+// ~100 Indian cities with coordinates (plan 30 S0), so the gate's optional radius works. A city that isn't listed
 // ("Other") is matched on its name only.
 import { readFileSync } from 'node:fs';
 
