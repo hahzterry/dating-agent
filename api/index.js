@@ -18,6 +18,14 @@ export default async function handler(req, res) {
       });
     }
 
+    // Restore the original API route after the Vercel rewrite.
+    const url = new URL(req.url, 'http://localhost');
+    const originalPath = url.searchParams.get('originalPath');
+    if (originalPath !== null) {
+      url.searchParams.delete('originalPath');
+      req.url = `/api/${originalPath.replace(/^\/+/, '')}${url.search}`;
+    }
+
     await connectDb();
 
     return app(req, res);
