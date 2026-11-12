@@ -48,7 +48,7 @@ export default function Preferences({ open, onClose, onSaved }) {
           <div className="rg-h"><span>Distance</span><b>{f.radiusKm ? `${f.radiusKm} km` : 'My city only'}</b></div>
           <input className="rg-one" type="range" min={0} max={100} step={5} value={f.radiusKm} aria-label="Distance in km (0 = my city only)" onChange={(e) => setF({ ...f, radiusKm: Number(e.target.value) })} />
         </div>
-        <p className="small">Distance works for the listed US cities. Age 80 means 80 and over.</p>
+        <p className="small">Distance works for the 104 listed cities. Age 80 means 80 and over.</p>
         {error && <p className="f-err" role="alert">{error}</p>}
       </>}
     </Sheet>

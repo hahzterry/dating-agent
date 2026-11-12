@@ -1,5 +1,5 @@
 // Sign up and log in (Round 7 Step 2 design, Auth.jsx). Sign-up is one call (plan 30 S0): basics with date of birth
-// (18+), a searchable city (US cities, or Other), I am / interested in, and the required AI-agent consent.
+// (18+), a searchable city (104 Indian cities, or Other), I am / interested in, and the required AI-agent consent.
 import { useEffect, useId, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ChevronLeft, Eye, EyeOff, KeyRound, Mail, MapPin, Search } from 'lucide-react'
@@ -57,7 +57,7 @@ function AuthShell({ title, sub, children }) {
   )
 }
 
-/** Searchable city combobox: the listed US cities, or any other city typed in (it then matches by name). */
+/** Searchable city combobox: the 104 listed cities, or any other city typed in (it then matches by name). */
 export function CityBox({ value, onChange }) {
   const id = useId()
   const [cities, setCities] = useState([])
@@ -70,7 +70,7 @@ export function CityBox({ value, onChange }) {
   const options = [...list, ...(q && !exact ? [`Other: “${value.trim()}”`] : [])]
   const choose = (i) => { const o = options[i]; if (!o) return; onChange(o.startsWith('Other: ') ? value.trim() : o); setOpen(false) }
   return (
-    <Field label="City" id={id} hint={`${cities.length} US cities, or type yours`}>{(fid) => (
+    <Field label="City" id={id} hint={`${cities.length || 104} cities in India, or type yours`}>{(fid) => (
       <div className="combo">
         <Input id={fid} value={value} icon={Search} role="combobox" aria-expanded={open && options.length > 0} aria-controls={`${fid}-l`} aria-autocomplete="list"
           aria-activedescendant={open ? `${fid}-o${active}` : undefined} autoComplete="off" placeholder="Start typing your city"
